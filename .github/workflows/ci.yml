@@ -42,6 +42,16 @@ jobs:
       - name: Run tests
         run: php artisan test  # Запустите ваши тесты, если они есть
 
+
+      - name: Install PHP extensions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-fileinfo
+
+      - name: Update Composer dependencies
+        run: composer update
+
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
