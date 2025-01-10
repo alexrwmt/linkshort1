@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-8 text-center">Сокращение ссылок</h1>
+        <h1 class="text-3xl font-bold mb-8 text-center">Shortiki.URL</h1>
 
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
