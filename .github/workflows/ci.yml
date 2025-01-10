@@ -70,4 +70,5 @@ jobs:
           composer install --no-dev && \
           php artisan migrate --force && \
           cp .env.example .env && \
-          php artisan key:generate"
+          php artisan key:generate && \
+          chmod -R 777 storage"
