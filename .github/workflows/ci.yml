@@ -46,7 +46,7 @@ jobs:
       - name: Install PHP extensions
         run: |
           sudo apt-get update
-          sudo apt-get install -y php8.2-common php8.2-fileinfo
+          sudo apt-get install -y php8.2-common php8.2-fileinfo php8.2-xml php8.2-curl
 
       - name: Update Composer dependencies
         run: composer update
@@ -60,4 +60,8 @@ jobs:
 
       - name: Build and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no root@194.87.215.192 "cd /www/wwwroot/lara1.pupupu.my && git pull origin main && composer install && php artisan migrate"
+          ssh -o StrictHostKeyChecking=no root@194.87.215.192 "cd /www/wwwroot/lara1.pupupu.my && \
+          git pull origin main && \
+          composer update --ignore-platform-reqs && \
+          composer install --no-dev && \
+          php artisan migrate --force"
