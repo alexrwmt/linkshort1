@@ -73,9 +73,5 @@ jobs:
           php artisan migrate --force && \
           cp .env.example .env && \
           php artisan key:generate && \
-          chmod -R 777 storage"
-
-      - name: Set up ownership
-        run: |
-          sudo chown -R www-data:www-data storage/
-          sudo chown -R www-data:www-data database/
+          chmod -R 777 storage && \
+          chmod -R 777 database" 
