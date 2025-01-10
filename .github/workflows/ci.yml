@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2.7'  # Укажите нужную версию PHP
+          php-version: '8.2.24'  # Укажите нужную версию PHP
           extensions: mbstring, sqlite3, xml
 
       - name: Install Composer dependencies
@@ -32,6 +32,7 @@ jobs:
           echo "APP_KEY=base64:$(openssl rand -base64 32)" > .env
           echo "DB_CONNECTION=sqlite" >> .env
           echo "DB_DATABASE=/home/runner/work/linkshort1/linkshort1/database/database.sqlite" >> .env
+          cat "/home/runner/work/linkshort1/linkshort1/.env" 
 
       - name: Generate application key
         run: php artisan key:generate
