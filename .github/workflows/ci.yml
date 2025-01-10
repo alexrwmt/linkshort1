@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sqlite
+          chmod -R 777 database
+          chmod 666 database/database.sqlite
 
       - name: Create .env file
         run: |
@@ -72,3 +74,8 @@ jobs:
           cp .env.example .env && \
           php artisan key:generate && \
           chmod -R 777 storage"
+
+      - name: Set up ownership
+        run: |
+          chown -R www-data:www-data storage/
+          chown -R www-data:www-data database/
